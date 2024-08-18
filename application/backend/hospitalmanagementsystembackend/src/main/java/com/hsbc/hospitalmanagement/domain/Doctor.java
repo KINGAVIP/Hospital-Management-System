@@ -1,43 +1,19 @@
 package com.hsbc.hospitalmanagement.domain;
 
-import java.util.Objects;
-
 public class Doctor extends Profile {
-
     private static final String ROLE = "Doctor";
-    private String id;
-    private String name;
     private String specialization;
-    private String phoneNumber;
-    private String address;
+    private String username;
+    private String password;
 
-    // Constructor with specialization argument corrected
-    public Doctor(String id, String name, String phoneNumber, String address, String specialization) {
+    public Doctor(String id, String name, String phoneNumber, String address, String specialization, String username, String password) {
         super(id, name, phoneNumber, address);
         this.specialization = specialization;
+        this.username = username;
+        this.password = password;
     }
 
-    // Getters and Setters
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getRole() {
-        return ROLE;  // Return the static final constant
-    }
-
+    // Getters and setters
     public String getSpecialization() {
         return specialization;
     }
@@ -46,32 +22,23 @@ public class Doctor extends Profile {
         this.specialization = specialization;
     }
 
-    public String getAddress() {
-        return address;
+    public String getUsername() {
+        return username;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Doctor doctor = (Doctor) o;
-        return Objects.equals(id, doctor.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(id);
+    public String getRole() {
+        return ROLE;
     }
 }
