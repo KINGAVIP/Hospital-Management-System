@@ -3,9 +3,13 @@ package com.hsbc.hospitalmanagement.dao;
 import com.hsbc.hospitalmanagement.domain.Doctor;
 import com.hsbc.hospitalmanagement.utils.ConManager;
 
+import javax.print.Doc;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DoctorDAO {
 
@@ -20,6 +24,8 @@ public class DoctorDAO {
 
     private static final String INSERT_DOCTOR =
             "INSERT INTO doctors (id, name, phone_number, address, role) VALUES (?, ?, ?, ?, ?)";
+
+    private static final String GET_DOCTORS = "SELECT username, password FROM DOCTORS";
 
     public void createTable() throws SQLException {
         try (Connection connection = ConManager.getConnection();
@@ -43,6 +49,27 @@ public class DoctorDAO {
             } else {
                 System.out.println("Failed to save doctor.");
             }
+        }
+    }
+
+    public List<Doctor> getAllDoctors() throws SQLException {
+
+        List<Doctor> resultList = new ArrayList<>();
+        try(Connection connection = ConManager.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(GET_DOCTORS);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while(resultSet.next()) {
+                resultList.add(
+                        new Doctor(resultSet.getString("id"),
+                                resultSet.getString("name"),
+                                resultSet.getString("phoneNumber"),
+                                resultSet.getString("address"),
+                                resultSet.getString("specialization"))
+
+                );
+            }
+            return resultList;
         }
     }
 }
