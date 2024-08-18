@@ -1,56 +1,52 @@
 package com.hsbc.hospitalmanagement.domain;
 
-public class Patient {
-    private String name;
-    private String address;
-    private int age;
-    private String phoneNumber;
-    private Appointment[] previousVisits;
+public class Patient extends Profile {
 
-    public String getName() {
-        return name;
+    private String insuranceInfo; // New field for insurance information
+    private String username; // New field for insurance information
+
+
+
+    public Patient() {
+
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public Patient(String id, String name, String phoneNumber, String address, String insuranceInfo, String username, String password) {
+        super(id, name, phoneNumber, address);
+        this.insuranceInfo = insuranceInfo;
+        this.username = username;
+        this.password = password;
     }
 
-    public String getAddress() {
-        return address;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public String getPassword() {
+        return password;
     }
 
-    public int getAge() {
-        return age;
+    public String getUsername() {
+        return username;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    private String password; // New field for insurance information
+
+
+    public Patient(String id, String name, String phoneNumber, String address, String insuranceInfo) {
+        super(id, name, phoneNumber, address);
+        this.insuranceInfo = insuranceInfo;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public String getInsuranceInfo() {
+        return insuranceInfo;
     }
 
-    public Appointment[] getPreviousVisits() {
-        return previousVisits;
-    }
-
-    public void setPreviousVisits(Appointment[] previousVisits) {
-        this.previousVisits = previousVisits;
-    }
-
-    public Patient(String name, String address, int age, String phoneNumber) {
-        this.name = name;
-        this.address = address;
-        this.age = age;
-        this.phoneNumber = phoneNumber;
+    public void setInsuranceInfo(String insuranceInfo) {
+        this.insuranceInfo = insuranceInfo;
     }
 }
