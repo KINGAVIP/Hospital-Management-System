@@ -5,6 +5,8 @@ import com.hsbc.hospitalmanagement.domain.Schedule;
 import java.sql.SQLException;
 import java.util.List;
 
+import static com.google.protobuf.JavaFeaturesProto.java;
+
 public interface DoctorDAO {
     void registerDoctor(Doctor doctor) throws SQLException;
     void updateDoctor(Doctor doctor) throws SQLException;
