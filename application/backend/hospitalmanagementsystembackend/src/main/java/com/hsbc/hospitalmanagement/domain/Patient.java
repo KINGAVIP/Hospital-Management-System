@@ -1,4 +1,56 @@
 package com.hsbc.hospitalmanagement.domain;
 
 public class Patient {
+    private String name;
+    private String address;
+    private int age;
+    private String phoneNumber;
+    private Appointment[] previousVisits;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public Appointment[] getPreviousVisits() {
+        return previousVisits;
+    }
+
+    public void setPreviousVisits(Appointment[] previousVisits) {
+        this.previousVisits = previousVisits;
+    }
+
+    public Patient(String name, String address, int age, String phoneNumber) {
+        this.name = name;
+        this.address = address;
+        this.age = age;
+        this.phoneNumber = phoneNumber;
+    }
 }
