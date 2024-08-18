@@ -9,7 +9,8 @@ public class AuthServiceImpl implements AuthService{
 
     @Override
     public Profile doLogin(String userName, String password) {
-        return null;
+        Profile profile = null;
+        return profile;
     }
 
     @Override
