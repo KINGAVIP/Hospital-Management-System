@@ -6,6 +6,9 @@ public class Profile {
     protected String phoneNumber;
     protected String address;
 
+    public Profile() {
+    }
+
     public Profile(String id, String name, String phoneNumber) {
         this.id = id;
         this.name = name;
