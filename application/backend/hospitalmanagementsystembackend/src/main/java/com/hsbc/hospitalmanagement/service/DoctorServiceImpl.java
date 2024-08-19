@@ -2,6 +2,7 @@ package com.hsbc.hospitalmanagement.service;
 
 import com.hsbc.hospitalmanagement.dao.DoctorDAO;
 import com.hsbc.hospitalmanagement.dao.DoctorDAOImpl;
+import com.hsbc.hospitalmanagement.domain.Appointment;
 import com.hsbc.hospitalmanagement.domain.Doctor;
 
 import java.sql.SQLException;
@@ -62,7 +63,7 @@ public class DoctorServiceImpl implements DoctorService {
     @Override
     public List<Doctor> getAllDoctor() {
         List<Doctor> doctors = new ArrayList<>();
-        
+
         /*
         try {
             doctors = doctorDAO.getAllDoctors();
@@ -71,5 +72,10 @@ public class DoctorServiceImpl implements DoctorService {
         }
         */
         return doctors;
+    }
+
+    @Override
+    public boolean cancelAppointment(Appointment appointment) {
+        return false;
     }
 }
