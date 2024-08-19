@@ -14,19 +14,3 @@
                     "address VARCHAR(255), " +
                     "insurance_info VARCHAR(255)" +
                     ");";
-
-
---Medicine
-CREATE TABLE IF NOT EXISTS medicines (
-                           medicine_id VARCHAR(50) PRIMARY KEY,
-                           name VARCHAR(100) NOT NULL,
-                           price DECIMAL(10, 2) NOT NULL,
-                           description TEXT
-);
-
-CREATE TABLE tests (
-                       test_id VARCHAR(50) PRIMARY KEY,
-                       name VARCHAR(100) NOT NULL,
-                       price DECIMAL(10, 2) NOT NULL,
-                       description TEXT
-);
