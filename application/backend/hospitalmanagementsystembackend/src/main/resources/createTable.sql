@@ -13,8 +13,11 @@
                     "phone_number VARCHAR(255), " +
                     "address VARCHAR(255), " +
                     "insurance_info VARCHAR(255)" +
+<<<<<<< HEAD
                      "username VARCHAR(50) NOT NULL UNIQUE,
                      password VARCHAR(255) NOT NULL,"
+=======
+>>>>>>> 6737358856f08bf83df362e328e4ae8bee9ee044
                     ");";
 
 
@@ -23,6 +26,7 @@ CREATE TABLE IF NOT EXISTS medicines (
                            medicine_id VARCHAR(50) PRIMARY KEY,
                            name VARCHAR(100) NOT NULL,
                            price DECIMAL(10, 2) NOT NULL,
+<<<<<<< HEAD
                            username VARCHAR(50) NOT NULL UNIQUE,
                            password VARCHAR(255) NOT NULL,
 
@@ -37,6 +41,10 @@ CREATE TABLE Users (
                        password VARCHAR(255) NOT NULL,
                        role VARCHAR(20) DEFAULT 'User'
 );
+=======
+                           description TEXT
+);
+>>>>>>> 6737358856f08bf83df362e328e4ae8bee9ee044
 
 CREATE TABLE tests (
                        test_id VARCHAR(50) PRIMARY KEY,
