@@ -1,0 +1,117 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+input{
+  border:none !important;
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 70%;
+  height:70%;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+  height:400px;
+  width:400px;
+  margin-left:2vw;
+}
+
+.login-box {
+  max-width: 80%px;
+  margin-left:auto;
+  margin-right: auto;
+}
+
+.login-box h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  background-color: #ececec;
+  border-radius: 25px;
+  margin-bottom: 15px;
+  padding: 10px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+
+}
+
+.input-group img {
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+}
+
+.input-group input {
+  border: none;
+  background: none;
+  outline: none;
+  padding: 10px;
+  width: 100%;
+  font-size: 16px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+
+}
+
+.input-group:hover,
+.input-group input:focus {
+    background-color: #d4edda;
+    box-shadow: 0 0 0 #28a745;
+
+} 
+
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 25px;
+  background-color: #28a745;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+.forgot-password,
+.create-account {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  color: #666;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.create-account {
+  font-weight: bold;
+}
+
+.create-account::after {
+  content: " →";
+}
+
+.create-account:hover {
+  color: #333;
+}

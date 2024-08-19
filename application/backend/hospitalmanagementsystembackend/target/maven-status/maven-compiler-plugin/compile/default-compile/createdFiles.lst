@@ -1,0 +1,9 @@
+com\hsbc\hospitalmanagement\domain\Patient.class
+com\hsbc\hospitalmanagement\service\AuthService.class
+com\hsbc\hospitalmanagement\dao\DoctorDAO.class
+com\hsbc\hospitalmanagement\service\AppointmentServiceImpl.class
+com\hsbc\hospitalmanagement\dao\UserDAO.class
+com\hsbc\hospitalmanagement\dao\PatientDAO.class
+com\hsbc\hospitalmanagement\service\AuthServiceImpl.class
+com\hsbc\hospitalmanagement\domain\Appointment.class
+com\hsbc\hospitalmanagement\service\AppointmentService.class

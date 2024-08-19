@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="images/hospital_logo.png" alt="Logo">
+        </div>
+
+        <div class="login-box">
+            <h2>Login</h2>
+            <form id="loginForm">
+
+                <!-- HOSPITAL LOGO -->
+                <div class="input-group">
+                    <label for="email">
+                        <img src="images/email_logo.png" alt="Email Icon">
+                    </label>
+                    <input type="email" id="email" name="email" placeholder="Email" required>
+                </div>
+                
+
+                <div class="input-group">
+                    <label for="password">
+                        <img src="images/password_logo.png" alt="Password Icon">
+                    </label>
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                </div>
+                <button type="submit">LOGIN</button>
+            </form>
+
+            <!-- register and forgot password => will implement later -->
+            <a href="#" class="forgot-password">Forgot Username / Password?</a>
+            <a href="#" class="create-account">Create your Account</a>
+        </div>
+    </div>
+    
+    <script src="server.js"></script>
+</body>
+</html>

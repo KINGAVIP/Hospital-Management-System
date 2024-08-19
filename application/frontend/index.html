@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Project CodeFury</title>
+    <link rel="stylesheet" href="styles/index-styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Hospital Project CodeFury</h1>
+        </div>
+    </header>
+
+    <main>
+        <div class="welcome-container">
+            <div class="intro">
+                <img src="images/hospital_logo.png" alt="Hospital Welcome"  class="welcome-img">
+                <p>Login as </p>
+            </div>
+
+            <!--homepage will redirect login for different users -->
+            <div class="login-options">
+                <button onclick="window.location.href='login.html?role=admin'" class="login-btn admin-btn">Admin Login</button>
+                <button onclick="window.location.href='login.html?role=doctor'" class="login-btn doctor-btn">Doctor Login</button>
+                <button onclick="window.location.href='login.html?role=patient'" class="login-btn patient-btn">Patient Login</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
