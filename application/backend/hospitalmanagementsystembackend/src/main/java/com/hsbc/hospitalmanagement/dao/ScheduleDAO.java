@@ -2,18 +2,11 @@ package com.hsbc.hospitalmanagement.dao;
 
 import com.hsbc.hospitalmanagement.domain.Appointment;
 
-public class ScheduleDAO {
+import java.util.List;
 
-    private static final String GET_SCHEDULE =
-            """
-                    SELECT * FROM SCHEDULE WHERE DOCTOR_ID = ?
-                    """;
+public interface ScheduleDAO {
 
-    private static final String ADD_SCHEDULE = """
-                INSERT INTO SCHEDULE VALUES (?, ?, ?, ?, ?)
-            """;
-
-    public void addAppointment(Appointment appointment) {
-        
-    }
+    public boolean addAppointment(Appointment appointment);
+    public boolean deleteAppointment(Appointment appointment);
+    public List<String> getAllAppointments(String doctorId);
 }
