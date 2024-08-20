@@ -22,6 +22,7 @@ public class User extends Profile {
         return role;
     }
 
+
     public String getUsername() {
         return username;
     }
