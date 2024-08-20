@@ -1,19 +1,28 @@
 package com.hsbc.hospitalmanagement.service;
 
-import com.hsbc.hospitalmanagement.dao.DoctorDAO;
-import com.hsbc.hospitalmanagement.dao.DoctorDAOImpl;
+import com.hsbc.hospitalmanagement.dao.*;
+import com.hsbc.hospitalmanagement.domain.Appointment;
 import com.hsbc.hospitalmanagement.domain.Doctor;
+import com.hsbc.hospitalmanagement.domain.Medicine;
+import com.hsbc.hospitalmanagement.domain.Test;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class DoctorServiceImpl implements DoctorService {
 
     private final DoctorDAO doctorDAO;
+    private final MedicineDAO medicineDAO;
+    private final TestDAO testDAO;
+    private final AppointmentService appointmentService;
 
     public DoctorServiceImpl() {
         this.doctorDAO = new DoctorDAOImpl();
+        this.medicineDAO = new MedicineDAOImpl();
+        this.testDAO = new TestDAOImpl();
+        AppointmentDAO appointmentDAO = new AppointmentDAOImpl();
+        this.appointmentService = new AppointmentServiceImpl(appointmentDAO);  // Use AppointmentService
     }
 
     @Override
@@ -60,16 +69,32 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
-    public List<Doctor> getAllDoctor() {
-        List<Doctor> doctors = new ArrayList<>();
-        
-        /*
-        try {
-            doctors = doctorDAO.getAllDoctors();
-        } catch (SQLException e) {
-            e.printStackTrace();
+    public boolean cancelAppointment(String appointmentId) {
+        return appointmentService.cancelAppointment(appointmentId);
+    }
+
+    @Override
+    public List<Medicine> suggestMedicines(String criteria) {
+        List<Medicine> allMedicines = medicineDAO.getAllMedicines();
+        return allMedicines.stream()
+                .filter(medicine -> medicine.getDescription().toLowerCase().contains(criteria.toLowerCase()))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Test> suggestTests(String criteria) {
+        List<Test> allTests = testDAO.getAllTests();
+        return allTests.stream()
+                .filter(test -> test.getDescription().toLowerCase().contains(criteria.toLowerCase()))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Appointment> viewAppointments(String doctorId) {
+        Doctor doctor = getDoctorById(Integer.parseInt(doctorId)); // Fetch doctor to pass to service
+        if (doctor != null) {
+            return appointmentService.ViewAppointmentsByDoctor(doctor);
         }
-        */
-        return doctors;
+        return List.of();
     }
 }

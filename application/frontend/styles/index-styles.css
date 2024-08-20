@@ -1,0 +1,95 @@
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: linear-gradient(90deg, #004d99, #0066cc);
+  color: #fff;
+  padding: 1rem;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-content h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: calc(100vh - 80px); /* Adjust for fixed header */
+  padding: 20px;
+}
+
+.welcome-container {
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.intro {
+  margin-bottom: 20px;
+}
+
+.welcome-img {
+  width: 300px;
+  height: 300px;
+}
+
+.login-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.login-btn {
+  padding: 15px;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.admin-btn {
+  background-color: #dc3545;
+}
+
+.admin-btn:hover {
+  background-color: #c82333;
+}
+
+.doctor-btn {
+  background-color: #007bff;
+}
+
+.doctor-btn:hover {
+  background-color: #0056b3;
+}
+
+.patient-btn {
+  background-color: #28a745;
+}
+
+.patient-btn:hover {
+  background-color: #218838;
+}

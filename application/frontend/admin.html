@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="styles/admin-styles.css">
+</head>
+<body>
+
+    <!-- HOMEPAGE FOR ADMIN -->
+    <header>
+
+        <!-- NAVBAR ========================================-->
+        <div class="header-content">
+            <h1>Hospital Management System</h1>
+            <nav>
+                <!-- functionalities of admin -->
+                <ul>
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="#">Manage Doctors</a></li>
+                    <li><a href="#">View Appointments</a></li>
+                    <li><a href="#">View Patients</a></li>
+                    <li><a href="#">Reports</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="container">
+
+        <!-- SIDEBAR================================== -->
+        <aside>
+            <h2>Admin Panel</h2>
+            <ul>
+                <li><a href="#">Import Users</a></li>
+                <li><a href="#">Manage Schedules</a></li>
+                <li><a href="#">Cancel Appointments</a></li>
+                <li><a href="#">View All Patients</a></li>
+                <li><a href="#">Filter Patients</a></li>
+            </ul>
+        </aside>
+        
+        <main>
+            <section class="dashboard-overview">
+                <h2>Dashboard Overview</h2>
+                <div class="card">
+                    <h3>Total Doctors</h3>
+                    <p>10</p>
+                </div>
+                <div class="card">
+                    <h3>Total Patients</h3>
+                    <p>100</p>
+                </div>
+                <div class="card">
+                    <h3>Total Appointments</h3>
+                    <p>100</p>
+                </div>
+            </section>
+            
+            <section class="manage-doctors">
+                <h2>Manage Doctors</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Specialty</th>
+                            <th>Schedule</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Dr. A</td>
+                            <td>Specialization</td>
+                            <td>Mon-Fri</td>
+                            <td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+                        </tr>
+                        
+                </table>
+            </section>
+            
+            <section class="view-appointments">
+                <h2>View Appointments</h2>
+                <div class="appointment-calendar">
+                    <!--TODO===================== -->
+                </div>
+            </section>
+            
+            <section class="reports">
+                <h2>Reports</h2>
+                <p>Generate Reports.</p>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

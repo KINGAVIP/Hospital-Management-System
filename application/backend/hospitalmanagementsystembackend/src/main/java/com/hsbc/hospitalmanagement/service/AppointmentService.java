@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface AppointmentService {
     public boolean bookAppointment (Appointment appointment);
-    public boolean cancelAppointment (Appointment appointment);
+    public boolean cancelAppointment (String appointmentId);
     public List<Appointment> ViewAppointmentsByPatients(Patient patient);
     public List<Appointment> ViewAppointmentsByDoctor(Doctor doctor);
 }
