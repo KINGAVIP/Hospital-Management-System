@@ -18,6 +18,13 @@ public class User extends Profile {
         this.password = password;
     }
 
+    public User(String id, String name, String username, String password) {
+        super (id, name);
+        this.username = username;
+        this.password = password;
+    }
+
+
     public String getRole() {
         return role;
     }

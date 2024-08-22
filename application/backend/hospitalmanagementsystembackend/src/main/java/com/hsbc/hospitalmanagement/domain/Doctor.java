@@ -18,6 +18,14 @@ public class Doctor extends Profile {
         this.specialization = specialization;
     }
 
+    public Doctor(String id, String name, String phoneNumber, String username, String password) {
+        super(id, name, phoneNumber, username, password);
+    }
+
+    public Doctor(String id, String name, String username, String password) {
+        super(id, name, username, password);
+    }
+
     // Getters and setters
     public String getSpecialization() {
         return specialization;

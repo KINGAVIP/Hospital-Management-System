@@ -97,4 +97,13 @@ public class DoctorServiceImpl implements DoctorService {
         }
         return List.of();
     }
+
+    @Override
+    public List<Doctor> getAllDoctors() {
+        try {
+            return doctorDAO.getAllDoctors();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

@@ -22,4 +22,6 @@ public interface UserService {
     boolean login(String userName, String password);
 
     boolean cancelAppointment(Appointment appointment);
+
+
 }

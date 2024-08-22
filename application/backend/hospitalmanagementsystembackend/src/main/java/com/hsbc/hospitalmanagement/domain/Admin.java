@@ -23,7 +23,7 @@ public class Admin extends Profile{
         return role;
     }
 
-    public String getUsername() {
+    public String getUserame() {
         return username;
     }
 

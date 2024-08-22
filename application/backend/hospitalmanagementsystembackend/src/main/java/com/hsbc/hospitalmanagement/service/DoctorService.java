@@ -16,4 +16,5 @@ public interface DoctorService {
     public List<Medicine> suggestMedicines(String criteria);
     public List<Test> suggestTests(String criteria);
     public List<Appointment> viewAppointments(String DoctorId);
+    public List<Doctor> getAllDoctors();
 }

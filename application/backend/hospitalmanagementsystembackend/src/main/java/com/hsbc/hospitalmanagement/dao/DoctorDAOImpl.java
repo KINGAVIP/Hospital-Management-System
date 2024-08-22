@@ -4,6 +4,7 @@ import com.hsbc.hospitalmanagement.domain.Doctor;
 import com.hsbc.hospitalmanagement.domain.Schedule;
 import com.hsbc.hospitalmanagement.utils.ConManager;
 
+import javax.print.Doc;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +15,7 @@ public class DoctorDAOImpl implements DoctorDAO {
     private static final String UPDATE_DOCTOR_SQL = "UPDATE doctors SET name = ?, phone_number = ?, address = ?, specialization = ?, username = ?, password = ? WHERE id = ?";
     private static final String DELETE_DOCTOR_SQL = "DELETE FROM doctors WHERE id = ?";
     private static final String SELECT_DOCTOR_SQL = "SELECT * FROM doctors WHERE id = ?";
+    private static final String SELECT_ALL_DOCTORS = "SELECT * FROM doctors WHERE id = ?";
 
     @Override
     public void registerDoctor(Doctor doctor) throws SQLException {
@@ -82,6 +84,31 @@ public class DoctorDAOImpl implements DoctorDAO {
                     return null;
                 }
             }
+        }
+    }
+
+    @Override
+    public List<Doctor> getAllDoctors() throws SQLException {
+        try (Connection connection = ConManager.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_DOCTORS)) {
+
+            List<Doctor> result = new ArrayList<>();
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    result.add(new Doctor(
+                            resultSet.getString("id"),
+                            resultSet.getString("name"),
+                            resultSet.getString("phone_number"),
+                            resultSet.getString("address"),
+                            resultSet.getString("specialization"),
+                            resultSet.getString("username"),
+                            resultSet.getString("password")
+                    ));
+                } else {
+                    return null;
+                }
+            }
+            return result;
         }
     }
 

@@ -28,6 +28,24 @@ public abstract class Profile {
         this.password = password;
     }
 
+    public Profile(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public Profile(String id, String name, String phoneNumber, String address) {
+        this.id = id;
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+    }
+
+    public Profile(String id, String name, String phoneNumber) {
+        this.id = id;
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+    }
+
     public String getId() {
         return id;
     }
