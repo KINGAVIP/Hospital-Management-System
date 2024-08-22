@@ -7,13 +7,7 @@ import com.hsbc.hospitalmanagement.domain.Patient;
 public interface UserService {
     void addPatient(Patient patient);
 
-    Patient getPatientById(String patientId);
-
-    void updatePatient(Patient patient);
-
-    void deletePatient(String patientId);
-
-    Appointment bookAppointment(Appointment appointment);
+    boolean bookAppointment(Appointment appointment);
 
     void viewDoctorSchedule(Doctor doctor);
 
@@ -21,7 +15,5 @@ public interface UserService {
 
     boolean login(String userName, String password);
 
-    boolean cancelAppointment(Appointment appointment);
-
-
+    boolean cancelAppointment(String appointmentId);
 }
