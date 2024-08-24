@@ -11,8 +11,6 @@ public interface UserService {
 
     void viewDoctorSchedule(Doctor doctor);
 
-    void viewAppointments();
-
     boolean login(String userName, String password);
 
     boolean cancelAppointment(String appointmentId);

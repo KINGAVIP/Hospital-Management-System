@@ -12,8 +12,12 @@ import com.hsbc.hospitalmanagement.domain.User;
 public class UserServiceImpl implements UserService {
     private final UserDAO userDAO;
     private final AppointmentService appointmentService;
+    private final DoctorService doctorService;
+    private final AdminService adminService;
 
-    public UserServiceImpl() {
+    public UserServiceImpl(DoctorService doctorService, AdminService adminService) {
+        this.doctorService = doctorService;
+        this.adminService = adminService;
         this.userDAO = new UserDAOImpl();
         AppointmentDAO appointmentDAO = new AppointmentDAOImpl();
         this.appointmentService = new AppointmentServiceImpl(appointmentDAO);
@@ -21,7 +25,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void addPatient(Patient patient) {
-
+        userDAO.addUser(new User(patient.getId(), patient.getName(), patient.getPhoneNumber(), patient.getUsername(), patient.getPassword()));
     }
 
 
@@ -33,12 +37,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void viewDoctorSchedule(Doctor doctor) {
-
-    }
-
-    @Override
-    public void viewAppointments() {
-
+        doctorService.viewAppointments(doctor.getId());
     }
 
     @Override
