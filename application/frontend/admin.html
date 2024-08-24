@@ -3,97 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="styles/admin-styles.css">
+    <title>Hospital Management System</title>
+    <link rel="stylesheet" href="admin_styles.css">
 </head>
 <body>
-
-    <!-- HOMEPAGE FOR ADMIN -->
     <header>
-
-        <!-- NAVBAR ========================================-->
         <div class="header-content">
             <h1>Hospital Management System</h1>
             <nav>
-                <!-- functionalities of admin -->
                 <ul>
                     <li><a href="#">Dashboard</a></li>
-                    <li><a href="#">Manage Doctors</a></li>
-                    <li><a href="#">View Appointments</a></li>
-                    <li><a href="#">View Patients</a></li>
-                    <li><a href="#">Reports</a></li>
+                    <li><a href="#" id="importUsersBtn">Import Users</a></li>
+                    <li><a href="#" id="showDoctorsBtn">Show All Doctors</a></li>
+                    <li><a href="#" id="cancelAppointmentsBtn">Cancel Appointments</a></li>
+                    <li><a href="#" id="showPatientsBtn">Show All Patients</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-    
-    <div class="container">
 
-        <!-- SIDEBAR================================== -->
-        <aside>
-            <h2>Admin Panel</h2>
-            <ul>
-                <li><a href="#">Import Users</a></li>
-                <li><a href="#">Manage Schedules</a></li>
-                <li><a href="#">Cancel Appointments</a></li>
-                <li><a href="#">View All Patients</a></li>
-                <li><a href="#">Filter Patients</a></li>
-            </ul>
-        </aside>
-        
+    <div class="container">
         <main>
-            <section class="dashboard-overview">
-                <h2>Dashboard Overview</h2>
-                <div class="card">
-                    <h3>Total Doctors</h3>
-                    <p>10</p>
+            <!-- Section for Import Users -->
+            <section id="importUsersSection" class="hidden">
+                <h2>Import Users</h2>
+                <form id="importUsersForm">
+                    <label for="fileUpload">Upload JSON/XML file:</label>
+                    <input type="file" id="fileUpload" accept=".json, .xml" required>
+                    <button type="submit">Import</button>
+                </form>
+                <div id="importStatus"></div>
+            </section>
+
+            <!-- Section for Show All Doctors -->
+            <section id="showDoctorsSection" class="hidden">
+                <h2>Show All Doctors</h2>
+                <div>
+                    <label for="doctorSelect">Select Doctor:</label>
+                    <select id="doctorSelect">
+                        <!-- Options will be dynamically populated -->
+                    </select>
                 </div>
-                <div class="card">
-                    <h3>Total Patients</h3>
-                    <p>100</p>
-                </div>
-                <div class="card">
-                    <h3>Total Appointments</h3>
-                    <p>100</p>
+                <div id="doctorSchedule">
+                    <!-- Schedule will be dynamically populated -->
                 </div>
             </section>
-            
-            <section class="manage-doctors">
-                <h2>Manage Doctors</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Specialty</th>
-                            <th>Schedule</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Dr. A</td>
-                            <td>Specialization</td>
-                            <td>Mon-Fri</td>
-                            <td><a href="#">Edit</a> | <a href="#">Delete</a></td>
-                        </tr>
-                        
-                </table>
-            </section>
-            
-            <section class="view-appointments">
-                <h2>View Appointments</h2>
-                <div class="appointment-calendar">
-                    <!--TODO===================== -->
+
+            <!-- Section for Cancel Appointments -->
+            <section id="cancelAppointmentsSection" class="hidden">
+                <h2>Cancel Appointments</h2>
+                <div>
+                    <label for="cancelDoctorSelect">Select Doctor:</label>
+                    <select id="cancelDoctorSelect">
+                        <!-- Options will be dynamically populated -->
+                    </select>
                 </div>
+                <div id="appointmentsList">
+                    <!-- Appointments will be dynamically populated -->
+                </div>
+                <button id="cancelAppointmentBtn">Cancel Appointment</button>
             </section>
-            
-            <section class="reports">
-                <h2>Reports</h2>
-                <p>Generate Reports.</p>
+
+            <!-- Section for Show All Patients -->
+            <section id="showPatientsSection" class="hidden">
+                <h2>Show All Patients</h2>
+                <input type="text" id="patientFilter" placeholder="Filter patients...">
+                <div id="patientsList">
+                    <!-- Patients will be dynamically populated -->
+                </div>
             </section>
         </main>
     </div>
+
+    <script src="adminjs.js"></script>
 </body>
 </html>
