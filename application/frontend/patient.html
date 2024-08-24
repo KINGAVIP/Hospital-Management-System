@@ -39,7 +39,10 @@
           <!-- ADDING PATIENTS =================== -->
             <section class="add-patient">
                 <h2>Add Patient</h2>
-                <form>
+                <form id="add-patient-form" action="registerPatient" method="post">
+                    <label for="patient-id">ID:</label>
+                    <input type="text" id="patient-id" name="patient-id" required>
+
                     <label for="patient-name">Name:</label>
                     <input type="text" id="patient-name" name="patient-name" required>
 
@@ -52,27 +55,34 @@
                     <label for="patient-phone">Phone:</label>
                     <input type="tel" id="patient-phone" name="patient-phone" required>
 
+                    <label for="patient-address">Address:</label>
+                    <input type="text" id="patient-address" name="patient-address" required>
+
+                    <label for="patient-insurance">Insurance Info:</label>
+                    <input type="text" id="patient-insurance" name="patient-insurance" required>
+
+                    <label for="patient-username">Username:</label>
+                    <input type="text" id="patient-username" name="patient-username" required>
+
+                    <label for="patient-password">Password:</label>
+                    <input type="password" id="patient-password" name="patient-password" required>
+
                     <button type="submit">Add Patient</button>
                 </form>
             </section>
             
-
             <!-- BOOKING APPOINTMENTS ===================== -->
             <section class="book-appointment">
                 <h2>Book Appointment</h2>
-                <form>
+                <form id="book-appointment-form" action="bookAppointment" method="post">
                     <label for="patient-id">Patient ID:</label>
                     <input type="text" id="patient-id" name="patient-id" required>
 
                     <label for="doctor-id">Doctor:</label>
                     <select id="doctor-id" name="doctor-id" required>
-                        <!-- FIRST NEED TO SHOW AVAILABLE DOCTORS -->
                         <option value="" disabled selected>Select a doctor</option>
-                      
-                        <!-- HARDCODED TO DO LATER ===================== -->
                         <option value="d1">Dr. A</option>
                         <option value="d2">Dr. B</option>
-                        
                     </select>
 
                     <label for="appointment-date">Date:</label>
@@ -107,7 +117,6 @@
                                 <td>11:00 AM</td>
                                 <td>Confirmed</td>
                             </tr>
-                            
                         </tbody>
                     </table>
                 </div>
