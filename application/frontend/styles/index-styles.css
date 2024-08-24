@@ -1,95 +1,161 @@
-/* General Styles */
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f8f9fa;
+/* Reset some basic elements */
+body, h1, p, ul {
   margin: 0;
   padding: 0;
+  font-family: 'Roboto', sans-serif;
+  color: #333;
 }
 
+/* Header and Navigation */
 header {
-  background: linear-gradient(90deg, #004d99, #0066cc);
-  color: #fff;
-  padding: 1rem;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.header-content h1 {
-  margin: 0;
-  font-size: 1.8rem;
-  text-align: center;
-}
-
-main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: calc(100vh - 80px); /* Adjust for fixed header */
-  padding: 20px;
-}
-
-.welcome-container {
-  text-align: center;
-  width: 100%;
-  max-width: 600px;
-  padding: 20px;
-  border-radius: 10px;
-  background-color: #ffffff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.intro {
-  margin-bottom: 20px;
-}
-
-.welcome-img {
-  width: 300px;
-  height: 300px;
-}
-
-.login-options {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.login-btn {
+  background-color: #004d99;
   padding: 15px;
-  border: none;
-  border-radius: 25px;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.admin-btn {
+.nav-links {
+  display: flex;
+  list-style: none;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 2rem;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 16px;
+  transition: background-color 0.3s ease-in-out;
+  border-radius: 5px;
+}
+
+.nav-links a:hover {
+  background-color: #003366;
+}
+
+.logo img {
+  height: 50px;
+  margin-left: 2rem;
+}
+
+/* Hero Section */
+.hero-section {
+  /* background: linear-gradient(45deg, #007bff, #28a745); */
+  color: white;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero-content {
+    width:100vw;
+    height: 60vh;
+    background-image: url('../images/hospital-bg.png'); /* Path to your background image */
+    background-size: cover; /* Ensure the image covers the entire box */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    padding: 50px; /* Adjust padding for better content positioning */
+    border-radius: 20px; /* Rounded corners for a modern look */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    color: white; /* Make text white for contrast against the background */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Add text shadow for readability */
+    display:flex; 
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+}
+
+.hero-content h1 {
+  font-size: 4em;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  width:100%;
+  height:54px;
+  margin-top:40px;
+}
+
+.cta-buttons .btn {
+  padding: 15px 30px;
+  font-size: 20px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  color: white;
+}
+
+.cta-buttons .btn:hover {
+  transform: translateY(-3px);
+}
+
+.primary-btn {
   background-color: #dc3545;
 }
 
-.admin-btn:hover {
-  background-color: #c82333;
-}
-
-.doctor-btn {
+.secondary-btn {
   background-color: #007bff;
 }
 
-.doctor-btn:hover {
-  background-color: #0056b3;
-}
-
-.patient-btn {
+.tertiary-btn {
   background-color: #28a745;
 }
 
-.patient-btn:hover {
-  background-color: #218838;
+/* Features Section */
+.features {
+  background-color: #f8f9fa;
+  padding: 50px 20px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  text-align: center;
+}
+
+.feature {
+  max-width: 300px;
+}
+
+.feature i {
+  font-size: 3rem;
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+.feature h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.feature p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 20px;
 }

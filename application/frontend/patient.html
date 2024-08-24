@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard</title>
+    <link rel="stylesheet" href="styles/patient-styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-title">Patient Dashboard</div>
+        <ul class="sidebar-menu">
+            <li><a href="#available-doctors">Available Doctors</a></li>
+            <li><a href="#book-appointment">Book Appointment</a></li>
+            <li><a href="#view-appointments">View Appointments</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <!-- Available Doctors Section -->
+        <section id="available-doctors">
+            <h2>Available Doctors</h2>
+            <div class="card-container">
+                <!-- Doctor Cards -->
+                <div class="card">
+                    <img src="images/d3.png" alt="Dr. John Doe" class="card-img">
+                    <h3>Dr. John Doe</h3>
+                    <p>Specialty: Cardiology</p>
+                    <p>Experience: 10 years</p>
+                </div>
+                <div class="card">
+                    <img src="images/d4.jpg" alt="Dr. Jane Smith" class="card-img">
+                    <h3>Dr. Jane Smith</h3>
+                    <p>Specialty: Neurology</p>
+                    <p>Experience: 8 years</p>
+                </div>
+                <div class="card">
+                    <img src="images/d1.png" alt="Dr. Richard Roe" class="card-img">
+                    <h3>Dr. Richard Roe</h3>
+                    <p>Specialty: Pediatrics</p>
+                    <p>Experience: 12 years</p>
+                </div>
+                <div class="card">
+                    <img src="images/d2.png" alt="Dr. Alice Johnson" class="card-img">
+                    <h3>Dr. Alice Johnson</h3>
+                    <p>Specialty: Dermatology</p>
+                    <p>Experience: 7 years</p>
+                </div>
+            </div>
+        </section>
+        <section id="add-patient">
+            <h2>Add New Patient</h2>
+            <form id="addPatientForm">
+                <div class="form-group">
+                    <label for="patientName">Patient Name:</label>
+                    <input type="text" id="patientName" name="patientName" required>
+                </div>
+                <div class="form-group">
+                    <label for="patientEmail">Email:</label>
+                    <input type="email" id="patientEmail" name="patientEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="patientPhone">Phone:</label>
+                    <input type="text" id="patientPhone" name="patientPhone" required>
+                </div>
+                <div class="form-group">
+                    <label for="appointmentDate">Appointment Date:</label>
+                    <input type="text" id="appointment-date" name="appointmentDate" required>
+                </div>
+                <button type="submit">Add Patient</button>
+            </form>
+        </section>
+        
+        <!-- Book Appointment Section -->
+        <section id="book-appointment">
+            <h2>Book Appointment</h2>
+            <form id="appointment-form">
+                <label for="doctor-select">Select Doctor:</label>
+                <select id="doctor-select">
+                    <option value="john-doe">Dr. John Doe - Cardiology</option>
+                    <option value="jane-smith">Dr. Jane Smith - Neurology</option>
+                </select>
+
+                <label for="appointment-date">Select Date:</label>
+                <input type="text" id="appointment-date" placeholder="Select Date">
+
+                <button type="submit">Book Appointment</button>
+            </form>
+        </section>
+
+        <section id="view-appointments">
+            <h2>Your Appointments</h2>
+            <div class="view-container">
+                <!-- Appointment Cards -->
+                <div class="view">
+                    <h3>Appointment with Dr. John Doe</h3>
+                    <p>Date: 25th August 2024</p>
+                    <p>Time: 10:00 AM</p>
+                    <button class="cancel-appointment">Cancel Appointment</button>
+                    <div class="suggestions">
+                        <h4>Doctor's Suggestions:</h4>
+                        <p>Recommended Tests: Blood Pressure, ECG</p>
+                        <p>Medications: Aspirin</p>
+                    </div>
+                </div>
+                <div class="view">
+                    <h3>Appointment with Dr. Jane Smith</h3>
+                    <p>Date: 26th August 2024</p>
+                    <p>Time: 12:00 PM</p>
+                    <button class="cancel-appointment">Cancel Appointment</button>
+                    <div class="suggestions">
+                        <h4>Doctor's Suggestions:</h4>
+                        <p>Recommended Tests: MRI</p>
+                        <p>Medications: Ibuprofen</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="scripts/patient.js"></script>
+</body>
+</html>
