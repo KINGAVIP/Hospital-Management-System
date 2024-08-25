@@ -1,8 +1,6 @@
 package com.hsbc.hospitalmanagement.service;
 
-import com.hsbc.hospitalmanagement.dao.AdminDAO;
-import com.hsbc.hospitalmanagement.dao.DoctorDAO;
-import com.hsbc.hospitalmanagement.dao.UserDAO;
+import com.hsbc.hospitalmanagement.dao.*;
 import com.hsbc.hospitalmanagement.domain.Admin;
 import com.hsbc.hospitalmanagement.domain.Doctor;
 import com.hsbc.hospitalmanagement.domain.Profile;
@@ -14,9 +12,9 @@ import java.sql.SQLException;
 
 public class AuthServiceImpl implements AuthService{
 
-    private DoctorDAO doctorDAO;
-    private UserDAO userDAO;
-    private AdminDAO adminDAO;
+    private DoctorDAO doctorDAO = new DoctorDAOImpl();
+    private UserDAO userDAO = new UserDAOImpl();
+    private AdminDAO adminDAO = new AdminDAOImpl();
 
     @Override
     public Profile doLoginDoctor(String userName, String password) throws AuthenticationFailedException{
