@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles/dashboard-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<header>
+    <nav>
+        <div class="logo">
+            <img src="images/hospital_logo.png" alt="Hospital Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Appointments</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="login.html">Logout</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="dashboard">
+    <h1>Welcome, [User Name]</h1>
+    <div class="dashboard-cards">
+        <div class="card">
+            <i class="fas fa-user-md"></i>
+            <h3>Manage Doctors</h3>
+            <p>Admin can manage doctor profiles.</p>
+            <a href="#">Go to Doctor Management</a>
+        </div>
+        <div class="card">
+            <i class="fas fa-procedures"></i>
+            <h3>Manage Patients</h3>
+            <p>View and manage patient records.</p>
+            <a href="#">Go to Patient Management</a>
+        </div>
+        <div class="card">
+            <i class="fas fa-calendar-check"></i>
+            <h3>Appointments</h3>
+            <p>View and manage appointments.</p>
+            <a href="#">Go to Appointments</a>
+        </div>
+        <div class="card">
+            <i class="fas fa-calendar-alt"></i>
+            <h3>Schedules</h3>
+            <p>View and manage your schedule.</p>
+            <a href="#">Go to Schedule Management</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2024 Hospital Management System. All Rights Reserved.</p>
+</footer>
+</body>
+</html>
