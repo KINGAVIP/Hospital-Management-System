@@ -13,7 +13,7 @@ Our team followed an agile methodology, working in sprints to deliver key functi
 1. **Frontend Developers:**
    - Responsible for designing the user interface using HTML, CSS, and JavaScript.
    - Ensured that the UI is responsive, user-friendly, and aligned with the project’s theme.
-   - Collaborated closely with backend developers to integrate dynamic data into the UI.
+   
 
 2. **Backend Developers:**
    - Developed the business logic using Java and handled data storage with MySQL.
