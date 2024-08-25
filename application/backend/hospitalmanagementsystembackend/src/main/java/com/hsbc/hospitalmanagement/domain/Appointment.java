@@ -4,50 +4,50 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Appointment {
-
-    User user;
-    Doctor doctor;
-    Patient patient;
+    String appointmentId;;
+    String userId;
+    String doctorId;
+    String patientId;
     LocalDateTime appointmentDateTime;
 
-    public Appointment(User user, Doctor doctor, Patient patient, LocalDateTime appointmentDateTime) {
-        this.user = user;
-        this.doctor = doctor;
-        this.patient = patient;
+    public Appointment(String appointmentId,String userId, String doctorId, String patientId, LocalDateTime appointmentDateTime) {
+        this.appointmentId = appointmentId;
+        this.userId = userId;
+        this.doctorId = doctorId;
+        this.patientId = patientId;
         this.appointmentDateTime = appointmentDateTime;
     }
 
-    public User getUser() {
-        return user;
+    public String getAppointmentId() {
+        return appointmentId;
     }
 
-    // Equals and hashcode function uses only doctor object and appointment date-time
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Appointment that)) return false;
-        return Objects.equals(doctor, that.doctor) && Objects.equals(appointmentDateTime, that.appointmentDateTime);
+    public void setAppointmentId(String appointmentId) {
+        this.appointmentId = appointmentId;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(doctor, appointmentDateTime);
+    public String getUserId() {
+        return userId;
     }
 
-    public Doctor getDoctor() {
-        return doctor;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public void setDoctor(Doctor doctor) {
-        this.doctor = doctor;
+    public String getDoctorId() {
+        return doctorId;
     }
 
-    public Patient getPatient() {
-        return patient;
+    public void setDoctorId(String doctorId) {
+        this.doctorId = doctorId;
     }
 
-    public void setPatient(Patient patient) {
-        this.patient = patient;
+    public String getPatientId() {
+        return patientId;
+    }
+
+    public void setPatientId(String patientId) {
+        this.patientId = patientId;
     }
 
     public LocalDateTime getAppointmentDateTime() {
@@ -56,5 +56,29 @@ public class Appointment {
 
     public void setAppointmentDateTime(LocalDateTime appointmentDateTime) {
         this.appointmentDateTime = appointmentDateTime;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Appointment that = (Appointment) o;
+        return Objects.equals(appointmentId, that.appointmentId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(appointmentId);
+    }
+
+    @Override
+    public String toString() {
+        return "Appointment{" +
+                "appointmentId='" + appointmentId + '\'' +
+                ", userId='" + userId + '\'' +
+                ", doctorId='" + doctorId + '\'' +
+                ", patientId='" + patientId + '\'' +
+                ", appointmentDateTime=" + appointmentDateTime +
+                '}';
     }
 }

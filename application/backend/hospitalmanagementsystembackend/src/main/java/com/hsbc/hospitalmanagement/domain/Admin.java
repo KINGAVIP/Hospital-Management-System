@@ -6,12 +6,15 @@ public class Admin extends Profile{
     private String username;
     private String password;
 
-    public Admin(String id, String name, String phoneNumber) {
-        super(id, name, phoneNumber);
+    public Admin() {
     }
 
-    public Admin(String id, String name, String phoneNumber, String address,String username,String password) {
-        super(id, name, phoneNumber, address);
+    public Admin(String id, String name, String phoneNumber, String username, String password) {
+        super(id, name, phoneNumber, username, password);
+    }
+
+    public Admin(String id, String name, String phoneNumber, String address, String username, String password) {
+        super(id, name, phoneNumber, address, username, password);
         this.username=username;
         this.password=password;
     }
@@ -20,7 +23,7 @@ public class Admin extends Profile{
         return role;
     }
 
-    public String getUsername() {
+    public String getUserame() {
         return username;
     }
 
