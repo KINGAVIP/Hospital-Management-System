@@ -17,3 +17,12 @@ Any specific technologies or libraries you plan to use.
 Considerations for ensuring a responsive and user-friendly design.
 
 Commit the documentations once you make a plan
+The frontend of the Hospital Management System is built using HTML, CSS, and JavaScript, focusing on a responsive and user-friendly design. It provides tailored interfaces for patients, doctors, and administrators:
+
+Patient Portal: Simplified navigation for booking appointments, viewing medical history, and updating profiles.
+Doctor Portal: A personalized dashboard for managing schedules, appointments, and accessing patient records.
+Admin Dashboard: Tools for efficiently managing hospital resources, schedules, and user accounts.
+JavaScript adds interactivity, such as real-time form validation and dynamic appointment booking, ensuring a smooth user experience across all devices.
+
+Working website link : https://sathwik-karne.github.io/test-codefury/
+
