@@ -3,30 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hospital Project CodeFury</title>
+    <title>Hospital Management System</title>
     <link rel="stylesheet" href="styles/index-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
-        <div class="header-content">
-            <h1>Hospital Project CodeFury</h1>
-        </div>
+        <nav>
+            <div class="logo">
+                <img src="images/hospital_logo.png" alt="Hospital Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="login.html?role=admin">Admin</a></li>
+                <li><a href="login.html?role=doctor">Doctor</a></li>
+                <li><a href="login.html?role=patient">Patient</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <main>
-        <div class="welcome-container">
-            <div class="intro">
-                <img src="images/hospital_logo.png" alt="Hospital Welcome"  class="welcome-img">
-                <p>Login as </p>
-            </div>
-
-            <!--homepage will redirect login for different users -->
-            <div class="login-options">
-                <button onclick="window.location.href='login.html?role=admin'" class="login-btn admin-btn">Admin Login</button>
-                <button onclick="window.location.href='login.html?role=doctor'" class="login-btn doctor-btn">Doctor Login</button>
-                <button onclick="window.location.href='login.html?role=patient'" class="login-btn patient-btn">Patient Login</button>
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Welcome to Our Hospital</h1>
+            <p>Providing quality healthcare for everyone.</p>
+            <div class="cta-buttons">
+                <a href="login.html?role=admin" class="btn primary-btn">Admin Login</a>
+                <a href="login.html?role=doctor" class="btn secondary-btn">Doctor Login</a>
+                <a href="login.html?role=patient" class="btn tertiary-btn">Patient Login</a>
             </div>
         </div>
-    </main>
+    </section>
+
+    <section class="features">
+        <div class="feature">
+            <i class="fas fa-user-md"></i>
+            <h3>Qualified Doctors</h3>
+            <p>Our team consists of the best medical professionals.</p>
+        </div>
+        <div class="feature">
+            <i class="fas fa-procedures"></i>
+            <h3>Quality Care</h3>
+            <p>We provide exceptional care for all our patients.</p>
+        </div>
+        <div class="feature">
+            <i class="fas fa-hospital"></i>
+            <h3>State-of-the-Art Facility</h3>
+            <p>Our hospital is equipped with the latest medical technology.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Hospital Management System. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>
