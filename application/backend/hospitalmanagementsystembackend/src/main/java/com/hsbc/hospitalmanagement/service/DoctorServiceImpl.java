@@ -5,6 +5,8 @@ import com.hsbc.hospitalmanagement.domain.Appointment;
 import com.hsbc.hospitalmanagement.domain.Doctor;
 import com.hsbc.hospitalmanagement.domain.Medicine;
 import com.hsbc.hospitalmanagement.domain.Test;
+import com.hsbc.hospitalmanagement.exception.ProfileAlreadyExistsException;
+import com.hsbc.hospitalmanagement.exception.ProfileNotFoundException;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -17,6 +19,8 @@ public class DoctorServiceImpl implements DoctorService {
     private final TestDAO testDAO;
     private final AppointmentService appointmentService;
 
+    private final ScheduleService scheduleService = new ScheduleServiceImpl();
+
     public DoctorServiceImpl() {
         this.doctorDAO = new DoctorDAOImpl();
         this.medicineDAO = new MedicineDAOImpl();
@@ -26,8 +30,12 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
-    public boolean addDoctor(Doctor doctor) {
+    public boolean addDoctor(Doctor doctor) throws ProfileAlreadyExistsException {
         try {
+            Doctor existingDoctor = doctorDAO.getDoctor(doctor.getUsername());
+            if (existingDoctor != null) {
+                throw new ProfileAlreadyExistsException("Doctor with username " + doctor.getUsername() + " already exists.");
+            }
             doctorDAO.registerDoctor(doctor);
             return true;
         } catch (SQLException e) {
@@ -37,9 +45,13 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
-    public Doctor getDoctorById(int id) {
+    public Doctor getDoctorById(int id) throws ProfileNotFoundException {
         try {
-            return doctorDAO.getDoctor(String.valueOf(id));
+            Doctor doctor = doctorDAO.getDoctor(String.valueOf(id));
+            if (doctor == null) {
+                throw new ProfileNotFoundException("Doctor with ID " + id + " not found.");
+            }
+            return doctor;
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
@@ -47,8 +59,12 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
-    public boolean updateDoctor(Doctor doctor) {
+    public boolean updateDoctor(Doctor doctor) throws ProfileNotFoundException {
         try {
+            Doctor existingDoctor = doctorDAO.getDoctor(doctor.getId().toString());
+            if (existingDoctor == null) {
+                throw new ProfileNotFoundException("Doctor with ID " + doctor.getId() + " not found.");
+            }
             doctorDAO.updateDoctor(doctor);
             return true;
         } catch (SQLException e) {
@@ -58,8 +74,12 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
-    public boolean deleteDoctor(int id) {
+    public boolean deleteDoctor(int id) throws ProfileNotFoundException {
         try {
+            Doctor doctor = doctorDAO.getDoctor(String.valueOf(id));
+            if (doctor == null) {
+                throw new ProfileNotFoundException("Doctor with ID " + id + " not found.");
+            }
             doctorDAO.removeDoctor(String.valueOf(id));
             return true;
         } catch (SQLException e) {
@@ -90,12 +110,13 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
-    public List<Appointment> viewAppointments(String doctorId) {
+    public List<Appointment> viewAppointments(String doctorId) throws ProfileNotFoundException {
         Doctor doctor = getDoctorById(Integer.parseInt(doctorId)); // Fetch doctor to pass to service
         if (doctor != null) {
             return appointmentService.ViewAppointmentsByDoctor(doctor);
+        } else {
+            throw new ProfileNotFoundException("Doctor with ID " + doctorId + " not found.");
         }
-        return List.of();
     }
 
     @Override
@@ -104,6 +125,21 @@ public class DoctorServiceImpl implements DoctorService {
             return doctorDAO.getAllDoctors();
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }
+    }
+    public String updateDoctorSchedule(Appointment appointment) {
+        return scheduleService.updateAppointment(appointment);
+    }
+
+    public String setupRecurringSchedule(Appointment appointment) {
+        try {
+            for (int i = 0; i < 10; i++) { // Set up a schedule for 30 days (every 3 days)
+                scheduleService.addAppointment(appointment);
+                appointment.setAppointmentDateTime(appointment.getAppointmentDateTime().plusDays(3));
+            }
+            return "Recurring schedule set up successfully.";
+        } catch (Exception e) {
+            return "Error setting up recurring schedule: " + e.getMessage();
         }
     }
 }
